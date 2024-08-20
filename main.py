@@ -60,7 +60,6 @@ with resizer:
         lower_thresh = st.slider("Lower Threshold:", min_value=0, max_value=255, value=50)
 
         if st.button("Apply Edge Detection"):
-            if 'gray' not in locals():
-                gray = cv2.cvtColor(resized_img, cv2.COLOR_BGR2GRAY)
+            gray = cv2.cvtColor(resized_img, cv2.COLOR_BGR2GRAY)
             edges = cv2.Canny(gray, lower_thresh, upper_thresh)
             st.image(edges, caption="Edge Detection Image", use_column_width=True)
